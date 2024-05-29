@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
+    <title>Sessions</title>
+    <style>
+        .popup {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <table class="menu-container" border="0">
+                <tr>
+                    <td style="padding:10px" colspan="2">
+                        <table border="0" class="profile-container">
+                            <tr>
+                                <td width="30%" style="padding-left:20px">
+                                    <img src="../img/user.png" alt="" width="100%" style="border-radius:50%">
+                                </td>
+                                <td style="padding:0px;margin:0px;">
+                                    <p class="profile-title">User Name</p>
+                                    <p class="profile-subtitle">user@example.com</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="logout-btn btn-primary-soft btn">Log out</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-home">
+                        <a href="/index" class="non-style-link-menu"><div><p class="menu-text">Home</p></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-doctor">
+                        <a href="/patient/doctor" class="non-style-link-menu"><div><p class="menu-text">All Doctors</p></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-session menu-active menu-icon-session-active">
+                        <a href="/patient/schedule" class="non-style-link-menu non-style-link-menu-active"><div><p class="menu-text">Scheduled Sessions</p></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-appointment">
+                        <a href="/patient/appointment" class="non-style-link-menu"><div><p class="menu-text">My Bookings</p></div></a>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-settings">
+                        <a href="/patient/settings" class="non-style-link-menu"><div><p class="menu-text">Settings</p></div></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="dash-body">
+            <table border="0" width="100%" style="border-spacing: 0;margin:0;padding:0;margin-top:25px;">
+                <tr>
+                    <td width="13%">
+                        <button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px">Back</button>
+                    </td>
+                    <td>
+                        <form class="header-search">
+                            <input type="search" name="search" class="input-text header-searchbar" placeholder="Search Doctor name or Email or Date (YYYY-MM-DD)">
+                            <button type="submit" class="login-btn btn-primary btn" style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">Search</button>
+                        </form>
+                    </td>
+                    <td width="15%">
+                        <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">Today's Date</p>
+                        <p class="heading-sub12" style="padding: 0;margin: 0;">2023-09-30</p> <!-- Static date for demonstration -->
+                    </td>
+                    <td width="10%">
+                        <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="../img/calendar.svg" width="100%"></button>
+                    </td>
+                </tr>
+            </table>
+            <div style="margin: 20px;">
+                <!-- Sessions list will be dynamically inserted here -->
+                <table id="sessionsTable" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th>Doctor Name</th>
+                            <th>Specialty</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Data -->
+                        <tr>
+                            <td>Dr. Jane Smith</td>
+                            <td>Cardiology</td>
+                            <td>2023-10-05</td>
+                            <td>10:00 AM</td>
+                            <td>
+                                <button class="book-btn">Book</button>
+                            </td>
+                        </tr>
+                        <!-- More rows can be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example JavaScript for handling button actions
+        document.querySelectorAll('.book-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const doctorName = row.querySelector('td:first-child').textContent;
+                const date = row.querySelector('td:nth-child(3)').textContent;
+                console.log('Booking request for:', doctorName, 'on', date);
+                // Here you would typically make an AJAX call to book the session
+            });
+        });
+    </script>
+</body>
+</html>

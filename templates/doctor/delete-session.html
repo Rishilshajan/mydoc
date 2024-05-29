@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/signup.css') }}">
+    <title>Delete Session</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            margin-top: 50px;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Delete Session</h1>
+        <label for="sessionId">Session ID:</label>
+        <input type="text" id="sessionId" placeholder="Enter session ID">
+        <button onclick="deleteSession()">Delete Session</button>
+    </div>
+
+    <script>
+        function deleteSession() {
+            var sessionId = document.getElementById('sessionId').value;
+            console.log('Request to delete session with ID:', sessionId);
+            // Here you would typically make an AJAX call to the server to delete the session
+        }
+    </script>
+</body>
+</html>

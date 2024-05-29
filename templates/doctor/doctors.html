@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/signup.css') }}">
+    <title>Doctors</title>
+    <style>
+        .popup {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+        .sub-table {
+            animation: transitionIn-Y-bottom 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <table class="menu-container" border="0">
+                <tr>
+                    <td style="padding:10px" colspan="2">
+                        <table border="0" class="profile-container">
+                            <tr>
+                                <td width="30%" style="padding-left:20px">
+                                    <img src="../img/user.png" alt="" width="100%" style="border-radius:50%">
+                                </td>
+                                <td style="padding:0px;margin:0px;">
+                                    <p class="profile-title">Administrator</p>
+                                    <p class="profile-subtitle">admin@edoc.com</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <button class="logout-btn btn-primary-soft btn">Log out</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-dashbord">
+                        <div><p class="menu-text">Dashboard</p></div>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-doctor menu-active menu-icon-doctor-active">
+                        <div><p class="menu-text">Doctors</p></div>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-schedule">
+                        <div><p class="menu-text">Schedule</p></div>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-appointment">
+                        <div><p class="menu-text">Appointment</p></div>
+                    </td>
+                </tr>
+                <tr class="menu-row">
+                    <td class="menu-btn menu-icon-patient">
+                        <div><p class="menu-text">Patients</p></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="dash-body">
+            <table border="0" width="100%" style="border-spacing: 0;margin:0;padding:0;margin-top:25px;">
+                <tr>
+                    <td width="13%">
+                        <button class="login-btn btn-primary-soft btn btn-icon-back" style="padding-top:11px;padding-bottom:11px;margin-left:20px;width:125px">Back</button>
+                    </td>
+                    <td>
+                        <form class="header-search">
+                            <input type="search" name="search" class="input-text header-searchbar" placeholder="Search Doctor name or Email">
+                            <button type="submit" class="login-btn btn-primary btn" style="padding-left: 25px;padding-right: 25px;padding-top: 10px;padding-bottom: 10px;">Search</button>
+                        </form>
+                    </td>
+                    <td width="15%">
+                        <p style="font-size: 14px;color: rgb(119, 119, 119);padding: 0;margin: 0;text-align: right;">
+                            Today's Date
+                        </p>
+                        <p class="heading-sub12" style="padding: 0;margin: 0;">
+                            <!-- JavaScript to display today's date -->
+                            <script>
+                                document.write(new Date().toLocaleDateString());
+                            </script>
+                        </p>
+                    </td>
+                    <td width="10%">
+                        <button class="btn-label" style="display: flex;justify-content: center;align-items: center;"><img src="../img/calendar.svg" width="100%"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="padding-top:10px;">
+                        <center>
+                            <table class="filter-container" border="0">
+                                <tr>
+                                    <td width="10%"></td> 
+                                    <td width="5%" style="text-align: center;">Date:</td>
+                                    <td width="30%">
+                                        <input type="date" class="input-field" id="appointmentDate">
+                                    </td>
+                                    <td width="5%" style="text-align: center;">Status:</td>
+                                    <td width="30%">
+                                        <select class="input-field" id="appointmentStatus">
+                                            <option value="all">All</option>
+                                            <option value="confirmed">Confirmed</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </td>
+                                    <td width="10%">
+                                        <button class="btn-primary" onclick="filterAppointments()">Filter</button>
+                                    </td>
+                                    <td width="10%"></td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function filterAppointments() {
+            var date = document.getElementById('appointmentDate').value;
+            var status = document.getElementById('appointmentStatus').value;
+            console.log('Filtering appointments for:', date, 'with status:', status);
+            // Implement filtering logic or AJAX call here
+        }
+    </script>
+</body>
+</html>

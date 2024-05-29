@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Complete</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .success-message {
+            color: green;
+            font-size: 18px;
+        }
+        .info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Complete</h1>
+        <p class="success-message">Your appointment has been successfully booked.</p>
+        <div class="info">
+            <p><strong>Appointment Number:</strong> <span id="appointmentNumber"></span></p>
+            <p><strong>Date:</strong> <span id="appointmentDate"></span></p>
+        </div>
+        <button onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        // Example data, replace with dynamic data if needed
+        document.getElementById('appointmentNumber').textContent = '123456';
+        document.getElementById('appointmentDate').textContent = '2023-10-01';
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

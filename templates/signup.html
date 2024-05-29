@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="main.js" defer type="module"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/signup.css') }}">
+    <script type="module" src="main.js" defer></script>
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='img/bg1.jpg') }}");
+            background-size: cover;
+            background-position: center;
+            
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: for better readability */
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="container">
+            <form action="" method="POST" id="signupForm">
+                <table border="0">
+                    <tr>
+                        <td colspan="2">
+                            <p class="header-text">Let's Get Started</p>
+                            <p class="sub-text">Enter your Email and Password for Signing up</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-td" colspan="2">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" id="email" name="email" class="input-text" placeholder="Email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-td" colspan="2">
+                            <label for="pno" class="form-label">Password:</label>
+                            <input type="text" id="pword" name="pword" class="input-text" placeholder="Password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label-td" colspan="2">
+                            <!-- Empty cell for layout -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="reset" id="resetButton" value="Reset" class="login-btn btn-primary-soft btn">
+                        </td>
+                        <td>
+                            <input type="submit" id="submitButton" value="Submit" class="login-btn btn-primary btn">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <br>
+                            <label for="" class="sub-text" style="font-weight: 280;">Already have an account&#63;</label>
+                            <a href="/login" id="loginLink" class="hover-link1 non-style-link">Login</a>
+                            <br><br><br>
+                        </td>
+                    </tr>
+                </table>
+                <div class="input">
+                    <button id="google-login-btn" class="google-button" onclick="window.location.href='/google-login'">
+                        <i class="fab fa-google"></i> Login_With_Google
+                    </button>
+                </div>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

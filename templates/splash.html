@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden; /* Prevents scrollbars from appearing if content is larger than the screen */
+            background-image: url("{{ url_for('static', filename='img/bg4.jpg') }}"); /* Background image */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background */
+            background-size: cover; /* Cover the entire viewport without stretching */
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = '/home'; /* Redirect to '/home' after 4 seconds */
+            }, 4000); // 4000 milliseconds = 4 seconds
+        };
+    </script>
+</head>
+<body>
+    <!-- No additional content needed, just the background -->
+</body>
+</html>
+</html>

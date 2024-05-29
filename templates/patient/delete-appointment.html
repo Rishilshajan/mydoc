@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/signup.css') }}">
+    <title>Delete Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            margin-top: 50px;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Delete Appointment</h1>
+        <label for="appointmentId">Appointment ID:</label>
+        <input type="text" id="appointmentId" placeholder="Enter Appointment ID">
+        <button onclick="deleteAppointment()">Delete Appointment</button>
+    </div>
+
+    <script>
+        function deleteAppointment() {
+            var appointmentId = document.getElementById('appointmentId').value;
+            console.log('Attempting to delete appointment with ID:', appointmentId);
+            // Here you would typically make an AJAX call to the server to delete the appointment
+        }
+    </script>
+</body>
+</html>
